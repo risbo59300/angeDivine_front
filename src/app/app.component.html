@@ -1,7 +1,9 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">Ange_Divine</span>
     <span class="spacer"></span>
-    <button routerLink="/order" routerLinkActive="active" mat-button >Track Order</button>
-    <button routerLink="/register" routerLinkActive="active" mat-button >Register</button>
-    <button routerLink="/login" routerLinkActive="active" mat-button >Login</button>
+    <button mat-button routerLink="/order" routerLinkActive="active" >Track Order</button>
+    <button mat-button routerLink="/signup" routerLinkActive="active"  >Register</button>
+    <button mat-button routerLink="/login" routerLinkActive="active"  >Login</button>
 </mat-toolbar>
+
+<router-outlet></router-outlet>
