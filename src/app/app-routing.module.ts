@@ -3,12 +3,13 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+  {path: 'login', component: LoginComponent},
+  {path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 
 ];
 
