@@ -1,1 +1,44 @@
-<p>dashboard works!</p>
+<form [formGroup]="searchProductForm" class="search-form" (submit)="submitForm()">
+  <mat-form-field appearance="outline" class="search-input">
+    <mat-label>Rechercher</mat-label>
+    <input matInput formControlName="title">
+
+    <button mat-button matSuffix color="primary" [disabled]="searchProductForm.invalid">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+</form>
+
+<div class="product-list">
+
+  <mat-card class="product-card" *ngFor="let product of products">
+    <div class="product-image">
+      <img [src]="product.processedImg" alt="product-image">
+    </div>
+    <div class="product-details">
+      <h2 class="product-name"> {{product.name}}</h2>
+      <p class="product-description"> {{product.description}}</p>
+
+      <mat-divider></mat-divider>
+      <div class="product-info">
+        <div class="info-row">
+          <span class="info-label">Prix:</span>
+          <span class="info-value">{{product.price}}€</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Categorie:</span>
+          <span class="info-value">{{product.categoryName}}</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button mat-raised-button color="primary" class="update-button"
+          [routerLink]="'/admin/faq/' + product.id">FAQ</button>
+          <button mat-raised-button color="accent" class="update-button"
+          [routerLink]="'/admin/product/' + product.id">Modifier</button>
+          <button mat-raised-button color="warn" class="delete-button" (click)="deleteProduct(product.id)"
+          [routerLink]="'/admin/product/' + product.id">Supprimer</button>
+      </div>
+    </div>
+  </mat-card>
+</div>
